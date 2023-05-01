@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "binary_trees.h"
 
 /**
@@ -13,18 +13,18 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	if (parent == NULL)
 		return (NULL);
 
-	binary_tree_t *node;
+	binary_tree_t *ptr;
 
-	node = binary_tree_node(parent, value);
+	ptr = binary_tree_node(parent, value);
 
-	if (node == NULL)
+	if (ptr == NULL)
 		return (NULL);
 	if (parent->left != NULL)
 	{
-		node->left = parent->left;
-		parent->left->parent = node;
+		ptr->left = parent->left;
+		parent->left->parent = ptr;
 	}
-	parent->left = node;
+	parent->left = ptr;
 
-	return (node);
+	return (ptr);
 }
